@@ -100,26 +100,6 @@
         </div>
     </div>
     <script>
-        //$("#obi").click(function () {
-        //    $("#luke1").hide();
-        //    $("#sidious1").hide();
-        //    $("#maul1").hide();
-        //});
-        //$("luke").click(function () {
-        //    $("#obi1").hide();
-        //    $("#sidious1").hide();
-        //    $("#maul1").hide();
-        //});
-        //$("sidious").click(function () {
-        //    $("#obi1").hide();
-        //    $("#luke1").hide();
-        //    $("#maul1").hide();
-        //});
-        //$("maul").click(function () {
-        //    $("#obi1").hide();
-        //    $("#luke1").hide();
-        //    $("#maul1").hide();
-        //});
         var character = {
             luke: {
                 hp: 100,
@@ -176,6 +156,28 @@
             enemy.hp = enemy.hp - defender.ap
             defender.hp = defender.hp - enemy.cap
         }
+        $("#obi").click(function () {
+            $(characters.luke.visible).val(false);
+            $(characters.maul.visible).val(false);
+            $(characters.sidious.visible).val(false);
+        });
+        $("#luke").click(function () {
+            $(characters.luke.visible).val(false);
+            $(characters.maul.visible).val(false);
+            $(characters.sidious.visible).val(false);
+        });
+        $("#maul").click(function () {
+            $(characters.luke.visible).val(false);
+            $(characters.obi.visible).val(false);
+            $(characters.sidious.visible).val(false);
+        });
+        $("#sidious").click(function () {
+            $(characters.luke.visible).val(false);
+            $(characters.maul.visible).val(false);
+            $(characters.obi.visible).val(false);
+        });
+
+
     </script>
 </body>
 </html >
