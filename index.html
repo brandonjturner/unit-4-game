@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit-4-Game: Star Wars</title>
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class='container-fluid'>
+        <div class='row'>
+            <h1>The Starwars RPG</h1>
+        </div>
+
+        <div class='row' id="character-row">
+
+            <div class="card" id='obi1' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/obi.jpg">
+                <div class="card-body">
+                    <p class="card-text">Obi-Wan Kenobi</p>
+                    <p class="card-text"> obi.hp </p>
+                </div>
+            </div>
+            <div class="card" id='luke' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/luke.jpg">
+                <div class="card-body">
+                    <p class="card-text">Luke Skywalker</p>
+                    <p class="card-text">luke.hp</p>
+                </div>
+            </div>
+            <div class="card" id='sidious' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/sidious.jpg">
+                <div class="card-body">
+                    <p class="card-text">Darth Sidious</p>
+                    <p class="card-text">sidious.hp</p>
+                </div>
+            </div>
+            <div class="card" id='obi' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/maul.png">
+                <div class="card-body">
+                    <p class="card-text">Darth Maul</p>
+                    <p class="card-text">maul.hp</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=‘row’>
+            <p>Your Character</p>
+        </div>
+        
+        <!--==================================================ENEMY ROW==============================================================================-->
+        <div class='row' id="enemy-row">
+            <div class="col md-12">
+                <p>Enemies Availible To Attack</p>
+
+            </div>
+        </div>
+        <!--==================================================FIGHT ROW==============================================================================-->
+        <div class='row' id="fight-row">
+            <div class="col md-12">
+                <p>Fight Section</p>
+                <button id="attack-button" class="btn btn-danger">Attack</button>
+            </div>
+        </div>
+        <div class='row' id="defender-row">
+            <div class="col md-12">
+                <p>Defender</p>
+            </div>
+            <div class="card" id='obi' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/obi.jpg">
+                <div class="card-body">
+                    <p class="card-text">Obi-Wan Kenobi</p>
+                    <p class="card-text"> obi.hp </p>
+                </div>
+            </div>
+            <div class="card" id='luke' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/luke.jpg">
+                <div class="card-body">
+                    <p class="card-text">Luke Skywalker</p>
+                    <p class="card-text">luke.hp</p>
+                </div>
+            </div>
+            <div class="card" id='sidious' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/sidious.jpg">
+                <div class="card-body">
+                    <p class="card-text">Darth Sidious</p>
+                    <p class="card-text">sidious.hp</p>
+                </div>
+            </div>
+            <div class="card" id='maul' style="width: 10rem;">
+                <img class="card-img-top" src="assets/images/maul.png">
+                <div class="card-body">
+                    <p class="card-text">Darth Maul</p>
+                    <p class="card-text">maul.hp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //$("#obi").click(function () {
+        //    $("#luke1").hide();
+        //    $("#sidious1").hide();
+        //    $("#maul1").hide();
+        //});
+        //$("luke").click(function () {
+        //    $("#obi1").hide();
+        //    $("#sidious1").hide();
+        //    $("#maul1").hide();
+        //});
+        //$("sidious").click(function () {
+        //    $("#obi1").hide();
+        //    $("#luke1").hide();
+        //    $("#maul1").hide();
+        //});
+        //$("maul").click(function () {
+        //    $("#obi1").hide();
+        //    $("#luke1").hide();
+        //    $("#maul1").hide();
+        //});
+        var character = {
+            luke: {
+                hp: 100,
+                ap: 0,
+                attack: function () {
+                    this.ap = this.ap + 5;
+                },
+                cap: 5,
+                attacks: 0,
+                visible = true
+            },
+            obi: {
+                hp: 120,
+                ap: 0,
+                visible = true,
+                cap: 10,
+                attack: function () {
+                    this.ap = this.ap + 8;
+                }
+            },
+            sidious: {
+                hp: 150,
+                ap: 0,
+                visible = true,
+                cap: 15,
+                attack: function () {
+                    this.ap = this.ap + 12;
+                }
+            },
+            maul: {
+                hp: 180,
+                visible = true,
+                attack: function () {
+                    this.ap = this.ap + 15;
+                },
+                ap: 0,
+                cap: 20
+            }
+        }
+        var defender = null;
+        var enemy = null;
+        $(".character").click(function () {
+            if (!defender) {
+                defender = $(this).attr('id');
+                defender = character[defender]
+            }
+            else {
+                enemy = $(this).attr('id');
+                enemy = character[enemy]
+            }
+        })
+        function attack(defender, enemy) {
+            defender.attack()
+            enemy.hp = enemy.hp - defender.ap
+            defender.hp = defender.hp - enemy.cap
+        }
+    </script>
+</body>
+</html >
