@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,28 +16,28 @@
 
         <div class='row' id="character-row">
 
-            <div class="card" id='obi1' style="width: 10rem;">
+            <div class="top-card" id='obi1' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/obi.jpg">
                 <div class="card-body">
                     <p class="card-text">Obi-Wan Kenobi</p>
                     <p class="card-text"> obi.hp </p>
                 </div>
             </div>
-            <div class="card" id='luke' style="width: 10rem;">
+            <div class="top-card" id='luke' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/luke.jpg">
                 <div class="card-body">
                     <p class="card-text">Luke Skywalker</p>
                     <p class="card-text">luke.hp</p>
                 </div>
             </div>
-            <div class="card" id='sidious' style="width: 10rem;">
+            <div class="top-card" id='sidious' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/sidious.jpg">
                 <div class="card-body">
                     <p class="card-text">Darth Sidious</p>
                     <p class="card-text">sidious.hp</p>
                 </div>
             </div>
-            <div class="card" id='obi' style="width: 10rem;">
+            <div class="top-card" id='obi' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/maul.png">
                 <div class="card-body">
                     <p class="card-text">Darth Maul</p>
@@ -47,7 +47,7 @@
 
         </div>
 
-        <div class=‘row’>
+        <div class=ï¿½rowï¿½>
             <p>Your Character</p>
         </div>
         
@@ -69,28 +69,28 @@
             <div class="col md-12">
                 <p>Defender</p>
             </div>
-            <div class="card" id='obi' style="width: 10rem;">
+            <div class="bottom-card" id='obi' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/obi.jpg">
                 <div class="card-body">
                     <p class="card-text">Obi-Wan Kenobi</p>
                     <p class="card-text"> obi.hp </p>
                 </div>
             </div>
-            <div class="card" id='luke' style="width: 10rem;">
+            <div class="bottom-card" id='luke' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/luke.jpg">
                 <div class="card-body">
                     <p class="card-text">Luke Skywalker</p>
                     <p class="card-text">luke.hp</p>
                 </div>
             </div>
-            <div class="card" id='sidious' style="width: 10rem;">
+            <div class="bottom-card" id='sidious' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/sidious.jpg">
                 <div class="card-body">
                     <p class="card-text">Darth Sidious</p>
                     <p class="card-text">sidious.hp</p>
                 </div>
             </div>
-            <div class="card" id='maul' style="width: 10rem;">
+            <div class="bottom-card" id='maul' style="width: 10rem;">
                 <img class="card-img-top" src="assets/images/maul.png">
                 <div class="card-body">
                     <p class="card-text">Darth Maul</p>
@@ -144,7 +144,8 @@
         $(".character").click(function () {
             if (!defender) {
                 defender = $(this).attr('id');
-                defender = character[defender]
+                defender = character[defender];
+
             }
             else {
                 enemy = $(this).attr('id');
@@ -176,8 +177,6 @@
             $(characters.maul.visible).val(false);
             $(characters.obi.visible).val(false);
         });
-
-
     </script>
 </body>
 </html >
